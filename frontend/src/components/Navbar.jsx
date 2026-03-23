@@ -41,6 +41,7 @@ const Navbar = () => {
                     </div>
                     {/* Right-Cart &login/profile */}
                     <div className='flex items-center space-x-4'>
+                    <button onClick={()=>navigate("/admin")} className='cursor-pointer bg-orange-500 hover:bg-orange-600 text-black font-semibold px-6 py-3 rounded-full transition-all duration-300'>All Menu</button>
                         <button onClick={() => navigate("/cart")} className='relative p-2 hover:bg-gray-100 rounded-lg transition-colors'>
                             <ShoppingCart size={22} className='text-gray-700' />
                             <span className='absolute -top-1 -right-1 bg-orange-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-medium'>{Cartcount}</span>
