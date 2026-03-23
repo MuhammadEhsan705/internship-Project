@@ -117,37 +117,69 @@ const Navbar = () => {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-200">
-            <div className="flex flex-col space-y-3">
-              <Link to="/" className="text-gray-700 hover:text-blue-600 font-medium">Home</Link>
-              <Link to="/menu" className="text-gray-700 hover:text-blue-600 font-medium">Menus</Link>
-              <Link to="/book-table" className="text-gray-700 hover:text-blue-600 font-medium">Book Table</Link>
-              <Link to="/contact" className="text-gray-700 hover:text-blue-600 font-medium">Contact</Link>
-
-              {user ? (
-                <div className="flex flex-col space-y-1">
-                  <Link to="/my-booking" className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100">
-                    <Calendar size={18} className="mr-3" />My Bookings
-                  </Link>
-                  <Link to="/my-orders" className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100">
-                    <Package size={18} className="mr-3" />My Orders
-                  </Link>
-                  <button
-                    onClick={logout}
-                    className="flex w-full px-4 py-2 text-red-600 hover:bg-red-50"
-                  >
-                    <LogOut size={18} className="mr-3" />Logout
-                  </button>
-                </div>
-              ) : (
-                <button
-                  onClick={() => navigate("/login")}
-                  className="bg-orange-500 text-white px-6 py-2 rounded-lg hover:bg-orange-700 font-medium cursor-pointer"
+          <div className="flex flex-col space-y-3">
+            <Link 
+              to="/" 
+              onClick={() => setIsMenuOpen(false)} 
+              className="text-gray-700 hover:text-blue-600 font-medium"
+            >
+              Home
+            </Link>
+            <Link 
+              to="/menu" 
+              onClick={() => setIsMenuOpen(false)} 
+              className="text-gray-700 hover:text-blue-600 font-medium"
+            >
+              Menus
+            </Link>
+            <Link 
+              to="/book-table" 
+              onClick={() => setIsMenuOpen(false)} 
+              className="text-gray-700 hover:text-blue-600 font-medium"
+            >
+              Book Table
+            </Link>
+            <Link 
+              to="/contact" 
+              onClick={() => setIsMenuOpen(false)} 
+              className="text-gray-700 hover:text-blue-600 font-medium"
+            >
+              Contact
+            </Link>
+        
+            {user ? (
+              <div className="flex flex-col space-y-1">
+                <Link 
+                  to="/my-booking" 
+                  onClick={() => setIsMenuOpen(false)} 
+                  className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
                 >
-                  Login
+                  <Calendar size={18} className="mr-3" />My Bookings
+                </Link>
+                <Link 
+                  to="/my-orders" 
+                  onClick={() => setIsMenuOpen(false)} 
+                  className="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100"
+                >
+                  <Package size={18} className="mr-3" />My Orders
+                </Link>
+                <button
+                  onClick={() => { logout(); setIsMenuOpen(false); }} 
+                  className="flex w-full px-4 py-2 text-red-600 hover:bg-red-50"
+                >
+                  <LogOut size={18} className="mr-3" />Logout
                 </button>
-              )}
-            </div>
+              </div>
+            ) : (
+              <button
+                onClick={() => { navigate("/login"); setIsMenuOpen(false); }} 
+                className="bg-orange-500 text-white px-6 py-2 rounded-lg hover:bg-orange-700 font-medium cursor-pointer"
+              >
+                Login
+              </button>
+            )}
           </div>
+        </div>
         )}
       </div>
     </nav>
