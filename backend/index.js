@@ -22,7 +22,7 @@ connectCloudinary()
 app.use(express.json());
 app.use(
     cors({
-      origin: "http://localhost:5173",
+      origin: "https://internship-project-d7ho.vercel.app",
       credentials: true,
     })
   );
