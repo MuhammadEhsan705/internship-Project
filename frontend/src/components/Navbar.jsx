@@ -41,7 +41,7 @@ const Navbar = () => {
                     </div>
                     {/* Right-Cart &login/profile */}
                     <div className='flex items-center space-x-4'>
-                    <button onClick={()=>navigate("/admin")} className='cursor-pointer bg-orange-500 hover:bg-orange-600 text-black font-semibold px-6 py-3 rounded-full transition-all duration-300'>Admin</button>
+                    {/* <button onClick={()=>navigate("/admin")} className='cursor-pointer bg-orange-500 hover:bg-orange-600 text-black font-semibold px-6 py-3 rounded-full transition-all duration-300'>Admin</button> */}
                         <button onClick={() => navigate("/cart")} className='relative p-2 hover:bg-gray-100 rounded-lg git add .
 git commit -m "update message"
 git push origin maintransition-colors'>
