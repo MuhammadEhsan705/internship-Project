@@ -85,6 +85,7 @@ const AdminLogin = () => {
         >
           {Loading ? "loading..." : "Login"}
         </button>
+        <button onClick={()=>navigate("/")} className="mt-2 w-full h-11 rounded-full text-white hover:bg-orange-500 bg-indigo-500 transition">Back to Home</button>
 
         
       </form>
