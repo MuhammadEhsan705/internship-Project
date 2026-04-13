@@ -49,53 +49,92 @@ const Booking = () => {
     }
   };
   return (
-    <div className='py-24 px-3 sm:px-6'>
-      <h1 className='text-3xl font-bold text-center my-3'>All BOOKINGS</h1>
-      <div className='border border-gray-400 max-w-5xl mx-auto p-3 rounded-lg'>
-        {/* Header */}
-        <div className='hidden md:grid grid-cols-6 font-semibold text-gray-700 mb-4'>
-          <div>Name</div>
-          <div>Phone</div>
-          <div>Persons</div>
-          <div>Date</div>
-          <div>Time</div>
-          <div>Status</div>
-         
-        </div>
-         {/* item */}
-         <ul className="space-y-4">
-            {bookings.map((item) => (
-              <li key={item._id} className='border rounded-lg p-3 md:p-2'>
-                <div className='flex flex-col md:grid md:grid-cols-6 md:items-center gap-2 md:gap-0'>
-                  <p className='font-medium text-center md:text-left'>{item?.name}</p>
-                  <p className='text-gray-600 hidden md:block'>{item?.phone}</p>
-                  <p className='font-medium text-center md:text-left'>{item?.numberOfPeople}</p>
-                  <p className='font-medium text-center md:text-left'>{new Date(item?.date).toLocaleDateString("en-Us",{
-                    day:"2-digit",
-                    month:"short",
-                    year:"numeric",
-                  })}</p>
-                  <p className='font-medium text-center md:text-left'>{item?.time}</p>
-                  
-                  <div className='flex justify-center md:justify-start items-center gap-2 md:gap-5 mt-2 md:mt-0'>
-                    <select className='border rounded-md px-3 py-2' disabled={loading} name='status' value={item.status} onChange={(e)=>handleStatusChange(item._id, e.target.value)} >
-                      <option value="Pending">Pending</option>
-                      <option value="Approved">Approved</option>
-                      <option value="Cancelled">Cancelled</option>
-                    </select>
-                  
-                  </div>
-                  
+    <div className="py-16 sm:py-20 px-4 sm:px-6">
+  <h1 className="text-2xl sm:text-3xl font-bold text-center mb-6">
+    All BOOKINGS
+  </h1>
 
-                </div>
-                {/* render menu item */}
-                
-              </li>
-            ))}
-
-          </ul>
-      </div>
+  <div className="border border-gray-300 max-w-5xl mx-auto p-4 sm:p-6 rounded-lg">
+    
+    {/* Header */}
+    <div className="hidden md:grid grid-cols-6 gap-4 font-semibold text-gray-700 mb-4 text-sm">
+      <div>Name</div>
+      <div>Phone</div>
+      <div>Persons</div>
+      <div>Date</div>
+      <div>Time</div>
+      <div>Status</div>
     </div>
+
+    {/* Items */}
+    <ul className="space-y-3">
+      {bookings.map((item) => (
+        <li
+          key={item._id}
+          className="border rounded-lg p-4 md:p-3"
+        >
+          <div className="flex flex-col md:grid md:grid-cols-6 md:items-center gap-3 md:gap-4">
+
+            {/* Name */}
+            <div className="space-y-1">
+              <p className="text-xs text-gray-500 md:hidden">Name</p>
+              <p className="font-medium">{item?.name}</p>
+            </div>
+
+            {/* Phone */}
+            <div className="space-y-1">
+              <p className="text-xs text-gray-500 md:hidden">Phone</p>
+              <p className="text-gray-600">{item?.phone}</p>
+            </div>
+
+            {/* Persons */}
+            <div className="space-y-1">
+              <p className="text-xs text-gray-500 md:hidden">Persons</p>
+              <p className="font-medium">{item?.numberOfPeople}</p>
+            </div>
+
+            {/* Date */}
+            <div className="space-y-1">
+              <p className="text-xs text-gray-500 md:hidden">Date</p>
+              <p className="font-medium">
+                {new Date(item?.date).toLocaleDateString("en-US", {
+                  day: "2-digit",
+                  month: "short",
+                  year: "numeric",
+                })}
+              </p>
+            </div>
+
+            {/* Time */}
+            <div className="space-y-1">
+              <p className="text-xs text-gray-500 md:hidden">Time</p>
+              <p className="font-medium">{item?.time}</p>
+            </div>
+
+            {/* Status */}
+            <div className="space-y-1">
+              <p className="text-xs text-gray-500 md:hidden">Status</p>
+
+              <select
+                className="w-full md:w-auto border rounded-md px-3 py-2 text-sm"
+                disabled={loading}
+                value={item.status}
+                onChange={(e) =>
+                  handleStatusChange(item._id, e.target.value)
+                }
+              >
+                <option value="Pending">Pending</option>
+                <option value="Approved">Approved</option>
+                <option value="Cancelled">Cancelled</option>
+              </select>
+            </div>
+
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>
   );
 }
 
