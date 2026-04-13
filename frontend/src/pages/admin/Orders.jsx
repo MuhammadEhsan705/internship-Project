@@ -27,7 +27,7 @@ const Orders = () => {
       fetchorder();
     }
 
-  }, [])
+  }, [admin])
 
   const handleStatusChange = async (orderId, newStatus) => {
     try {

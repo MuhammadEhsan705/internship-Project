@@ -27,9 +27,9 @@ const Booking = () => {
       fetchbookings();
     }
 
-  }, [admin])
+  },[admin])
 
-  const handleStatusChange = async (bookingId, newStatus) => {
+  const handleStatusChange = async (bookingId,newStatus) => {
     try {
       setLoading(true);
       const { data } = await axios.put(`/api/booking/update-status/${bookingId}`, {
