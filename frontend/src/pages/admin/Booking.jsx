@@ -20,7 +20,7 @@ const Booking = () => {
     } catch (error) {
       console.log(error);
     }
-
+ 
   }
   useEffect(() => {
     if (admin) {
