@@ -181,7 +181,7 @@ const Navbar = () => {
               </button>
                <button
                onClick={() => {navigate("/admin");setIsMenuOpen(false);}}
-               className=" flex w-full px-4 py-2 text-red-600 hover:bg-red-50"
+               className=" bg-orange-500 text-white px-6 py-2 rounded-lg hover:bg-orange-700 font-medium cursor-pointer"
              >
                Admin
              </button>
