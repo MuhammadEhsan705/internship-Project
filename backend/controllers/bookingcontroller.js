@@ -34,7 +34,7 @@ export const creatBooking=async(req,res)=>{
     } catch (error) {
 
         console.log(error)
-      return res.json({message:"Internal server error",success:false})
+      return res.json({message:"LOGIN or Register",success:false})
         
     }
 }
