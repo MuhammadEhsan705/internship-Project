@@ -45,7 +45,7 @@ const Navbar = () => {
           <div className="flex items-center space-x-4">
             <button
               onClick={() => navigate("/admin")}
-              className=" cursor-pointer bg-orange-500 hover:bg-orange-600 text-black font-semibold px-6 py-3 rounded-full transition-all duration-300"
+              className="  md:block cursor-pointer bg-orange-500 hover:bg-orange-600 text-black font-semibold px-6 py-3 rounded-full transition-all duration-300"
             >
               Admin
             </button>
