@@ -27,7 +27,7 @@ const Booking = () => {
       fetchbookings();
     }
 
-  }, [])
+  }, [admin])
 
   const handleStatusChange = async (bookingId, newStatus) => {
     try {
