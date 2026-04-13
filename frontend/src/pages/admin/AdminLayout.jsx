@@ -115,7 +115,7 @@ const AdminLayout = () => {
           {sidebarOpen && (
             <div
               onClick={() => setSidebarOpen(false)}
-              className="fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden"
+              
             />
           )}
 
