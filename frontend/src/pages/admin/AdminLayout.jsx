@@ -112,12 +112,7 @@ const AdminLayout = () => {
           </div>
 
           {/* mobile overlay */}
-          {sidebarOpen && (
-            <div
-              onClick={() => setSidebarOpen(false)}
-              
-            />
-          )}
+          
 
         </div>
       </div>
