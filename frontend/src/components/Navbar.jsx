@@ -169,6 +169,12 @@ const Navbar = () => {
                 >
                   <LogOut size={18} className="mr-3" />Logout
                 </button>
+                <button
+              onClick={() => {navigate("/admin");setIsMenuOpen(false);}}
+              className=" flex w-full px-4 py-2 text-red-600 hover:bg-red-50"
+            >
+              Admin
+            </button>
               </div>
             ) : (
               <button
