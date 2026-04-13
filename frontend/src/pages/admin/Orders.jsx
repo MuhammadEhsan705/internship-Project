@@ -49,59 +49,98 @@ const Orders = () => {
     }
   };
   return (
-    <div className='py-24 px-3 sm:px-6'>
-      <h1 className='text-3xl font-bold text-center my-3'>All Orders</h1>
-      <div className='border border-gray-400 max-w-5xl mx-auto p-3 rounded-lg'>
-        {/* Header */}
-        <div className='hidden md:grid grid-cols-5 font-semibold text-gray-700 mb-4'>
-          <div>Name</div>
-          <div>Address</div>
-          <div>Total Amount</div>
-          <div>Payment method</div>
-          <div>Status</div>
-         
-        </div>
-         {/* item */}
-         <ul className="space-y-4">
-            {orders.map((item) => (
-              <li key={item._id} className='border rounded-lg p-3 md:p-2'>
-                <div className='flex flex-col md:grid md:grid-cols-5 md:items-center gap-2 md:gap-0'>
-                  <p className='font-medium text-center md:text-left'>{item?.user.name}</p>
-                  <p className='text-gray-600 hidden md:block'>{item?.address}</p>
-                  <p className='font-medium text-center md:text-left'>${item?.totalAmount}</p>
-                  <p className='font-medium text-center md:text-left'>{item.paymentMethod}</p>
-                  <div className='flex justify-center md:justify-start items-center gap-2 md:gap-5 mt-2 md:mt-0'>
-                    <select className='border rounded-md px-3 py-2' disabled={loading} name='status' value={item.status} onChange={(e)=>handleStatusChange(item._id, e.target.value)} >
-                      <option value="Pending">Pending</option>
-                      <option value="Preparing">Preparing</option>
-                      <option value="Delivered">Delivered</option>
-                    </select>
-                  
-                  </div>
-                  
-
-                </div>
-                {/* render menu item */}
-                <div className='mt-3'>
-                  {item.items.map((menu,index)=>(
-                    <div key={index} className='flex items-center gap-3 bg-gray-50 border rounded-lg p-2 my-2'>
-                    <img className='w-16 h-16 rounded object-cover' src={menu?.menuItem?.image} alt='menu?.menuItem?.name'/>
-                    <div className=''>
-                      <p className='font-semibold'>{menu?.menuItem?.image}</p>
-                      <p className='text-sm text-gray-600'>QTY:{menu?.quantity}</p>
-                      <p className='text-sm text-gray-600'>$:{menu?.menuItem?.price}</p>
-                      
-                    </div>
-                    </div>
-                  ))}
-
-                </div>
-              </li>
-            ))}
-
-          </ul>
+    <div className="py-24 px-4 sm:px-6">
+    <h1 className="text-2xl sm:text-3xl font-bold text-center mb-6">
+      All Orders
+    </h1>
+  
+    <div className="border border-gray-300 max-w-5xl mx-auto p-4 sm:p-6 rounded-lg">
+      
+      {/* Header */}
+      <div className="hidden md:grid grid-cols-5 gap-4 font-semibold text-gray-700 mb-4 text-sm">
+        <div>Name</div>
+        <div>Address</div>
+        <div>Total</div>
+        <div>Payment</div>
+        <div>Status</div>
       </div>
+  
+      {/* Orders */}
+      <ul className="space-y-4">
+        {orders.map((item) => (
+          <li key={item._id} className="border rounded-xl p-4 md:p-3">
+            
+            {/* Top Section */}
+            <div className="flex flex-col md:grid md:grid-cols-5 md:items-center gap-3 md:gap-4">
+              
+              <p className="font-medium">{item?.user?.name}</p>
+  
+              <p className="text-gray-600 text-sm break-words">
+                {item?.address}
+              </p>
+  
+              <p className="font-medium">${item?.totalAmount}</p>
+  
+              <p className="font-medium">{item?.paymentMethod}</p>
+  
+              <div>
+                <select
+                  className="w-full md:w-auto border rounded-md px-3 py-2 text-sm"
+                  disabled={loading}
+                  value={item.status}
+                  onChange={(e) =>
+                    handleStatusChange(item._id, e.target.value)
+                  }
+                >
+                  <option value="Pending">Pending</option>
+                  <option value="Preparing">Preparing</option>
+                  <option value="Delivered">Delivered</option>
+                </select>
+              </div>
+  
+            </div>
+  
+            {/* Products */}
+            <div className="mt-4 space-y-3">
+              {item.items.map((menu, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-3 bg-gray-50 border rounded-lg p-2 min-w-0"
+                >
+                  
+                  {/* Image */}
+                  <img
+                    className="w-16 h-16 rounded object-cover flex-shrink-0"
+                    src={menu?.menuItem?.image}
+                    alt={menu?.menuItem?.name}
+                  />
+  
+                  {/* Text FIXED */}
+                  <div className="min-w-0">
+                    
+                    {/* ✅ FIX: show NAME instead of IMAGE */}
+                    <p className="font-semibold text-sm truncate">
+                      {menu?.menuItem?.name}
+                    </p>
+  
+                    <p className="text-xs text-gray-600">
+                      QTY: {menu?.quantity}
+                    </p>
+  
+                    <p className="text-xs text-gray-600">
+                      $ {menu?.menuItem?.price}
+                    </p>
+  
+                  </div>
+                </div>
+              ))}
+            </div>
+  
+          </li>
+        ))}
+      </ul>
     </div>
+  </div>
   );
 }
 
