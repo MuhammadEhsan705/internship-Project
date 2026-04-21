@@ -20,7 +20,7 @@ const MenuDetails = () => {
     )
   }
   return (
-    <div className='min-h-screen bg-gradient-to-b from-gray-50 to-white'>
+    <div className='min-h-screen  from-gray-50 to-white'>
       {/* back buttone */}
       <div className='container mx-auto px-4 py-6'>
       <button  onClick={()=>navigate("/menu")} className=' flex items-center gap-2 bg-yellow-500 hover:text-gray-600   text-white rounded-full font-semibold transition-colors group'>
@@ -78,7 +78,7 @@ const MenuDetails = () => {
                 </p>
               </div>
               {/* Total and Add to Cart */}
-              <div className='bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-2xl p-6 shadow-xl'>
+              <div className=' from-yellow-400 to-yellow-500 rounded-2xl p-6 shadow-xl'>
                 <div className='flex items-center justify-between mb-4'>
                   <span className='text-white text-lg font-semibold'>
                     Total Amount
