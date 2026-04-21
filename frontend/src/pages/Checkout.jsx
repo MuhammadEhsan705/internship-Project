@@ -19,6 +19,9 @@ const Checkout = () => {
         if(data.success){
           toast.success(data.message);
           navigate("/my-orders");
+          if (paymentMethod === "Stripe") {
+            window.location.href = data.url;
+          }
         }else{
           toast.error(data.message);
         }
@@ -54,7 +57,7 @@ const Checkout = () => {
               <span>Pay at hotel</span>
             </label>
             <label htmlFor='' className='flex items-center space-x-3'>
-              <input type='radio' name="payment" id="" value="Online Payment" checked={paymentMethod === "Online Payment"} onChange={(e)=>setPaymentMethod(e.target.value)} className='text-green-600  focus:ring-green-500'/>
+              <input type='radio' name="payment" id="" value="strip Payment" checked={paymentMethod === "strip Payment"} onChange={(e)=>setPaymentMethod(e.target.value)} className='text-green-600  focus:ring-green-500'/>
               <span>Online Payment</span>
             </label>
           </div>
