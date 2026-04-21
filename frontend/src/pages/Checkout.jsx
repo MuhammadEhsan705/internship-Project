@@ -22,15 +22,8 @@ const Checkout = () => {
 
       if (data.success) {
         toast.success(data.message);
-
+      navigate("/my-orders");
         
-        if (paymentMethod === "Stripe") {
-          window.location.href = data.url;
-        } 
-      
-        else {
-          navigate("/my-orders");
-        }
       } else {
         toast.error(data.message);
       }
